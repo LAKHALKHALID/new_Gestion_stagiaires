@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('comportements', function (Blueprint $table) {
+            $table->id();
+            $table->string('stagiaire_id',20);
+            $table->foreign('stagiaire_id')->references('cef')->on('stagiaires')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('sanction',50);
+            $table->string('autorite_dec',30);
+            $table->string('miseEnGarde', 30);
+            $table->string('motife', 50);
+            $table->date('date');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('comportements');
+    }
+};

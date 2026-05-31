@@ -1,0 +1,159 @@
+/* Initial state: Transparent background */
+.navbar-transparent {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+/* Scrolled state: White background with clean shadow */
+.navbar-scrolled {
+  z-index: 1030; /* Ensure it stays above other content */
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #f1f3f5;
+}
+
+/* Smooth transition for background color and padding adjustments */
+.transition-all {
+    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Ensure the hero/home section sits behind the transparent navbar */
+#home {
+    padding-top: 100px; /* Adjust this so your hero text doesn't hide under the menu */
+}
+
+
+/* How It Works Styles */
+.step-card {
+    background-color: #ffffff;
+    border: 1px solid #f1f3f5;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: #e2e8f0;
+}
+
+/* Icon Containers */
+.step-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+/* Step Number Positioning */
+.step-number {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -5px;
+    top: -5px;
+    border: 2px solid #ffffff;
+}
+
+
+
+
+
+/* Creating a connecting line between steps on Desktop screens */
+@media (min-width: 768px) {
+    .steps-container::before {
+        content: "";
+        position: absolute;
+        top: 80px; /* Aligns line perfectly with the center of the icons */
+        left: 15%;
+        width: 70%;
+        height: 2px;
+        background: linear-gradient(to right, #e9ecef, #0d6efd, #e9ecef);
+        z-index: 0;
+    }
+}
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Custom Animated Underline for Navbar Links */
+.custom-nav-link {
+    color: #212529 !important; /* Dark text color */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Create the hidden underline line underneath the text */
+.custom-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0); /* Start scaled down to 0 (invisible) */
+    height: 2px;          /* Thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: #0d6efd; /* Bootstrap primary blue color */
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out; /* Smooth transition speed */
+}
+
+/* Hover Effects */
+.custom-nav-link:hover {
+    color: #0d6efd !important; /* Text changes to blue on hover */
+}
+
+.custom-nav-link:hover::after {
+    transform: scaleX(1); /* Line expands smoothly to full width on hover */
+}
+/* Footer Styles */
+.footer {
+    background-color: #121416 !important; /* Slightly darker charcoal for better contrast */
+}
+
+/* Subtle color transition for social media icons */
+.social-link {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.social-link:hover {
+    color: #0d6efd !important; /* Changes icon to blue */
+    transform: translateY(-3px);
+}
+
+/* Center-out Underline Animation tailored for Dark Background */
+.footer-link {
+    transition: color 0.3s ease;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: 0;
+    left: 0;
+    background-color: #0d6efd;
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out;
+}
+
+.footer-link:hover {
+    color: #0a97e9 !important; /* Highlighted to full crisp white */
+}
+
+.footer-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Sub-links in the bottom bar hover effect */
+.footer-sublink:hover {
+    color: #0a97e9 !important;
+    text-decoration: underline !important;
+}
+

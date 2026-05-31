@@ -1,0 +1,45 @@
+<button id="printBtn">Print HTML</button>
+
+<div id="contentToPrint">
+  <h1>Invoice</h1>
+  <p>Hello world</p>
+</div>
+
+<script>
+  document.getElementById("printBtn").addEventListener("click", () => {
+    const content = document.getElementById("contentToPrint").innerHTML;
+
+    const printWindow = window.open("", "_blank", "width=800,height=600");
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              padding: 20px;
+            }
+          </style>
+        </head>
+        <body>
+          <h2>Hello Youssef</h2>
+          ${content}
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+
+    // Wait for content to load before printing
+    printWindow.onload = () => {
+      printWindow.focus();
+      printWindow.print();
+
+      // Optional: close after printing
+      printWindow.onafterprint = () => {
+        printWindow.close();
+      };
+    };
+  });
+</script>
