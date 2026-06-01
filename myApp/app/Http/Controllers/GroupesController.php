@@ -83,7 +83,7 @@ class GroupesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         $request->validate([
+        $request->validate([
         'filiere_id' => 'required',
         'nom_g' => 'required',
         'capacite' => 'required|integer',
@@ -143,6 +143,9 @@ class GroupesController extends Controller
             $code_g = $row[0] ?? null;
             $nom_g = $row[1] ?? null;
             $filiere_id = $row[2] ?? null;
+            if(!Filiere::find($filiere_id)){
+                return redirect()->back()->with('error','you should import first Filiers');
+            }
             if(empty($code_g) || empty($nom_g) || empty($filiere_id)){
                 continue; // Skip if any of the required fields are missing
             }

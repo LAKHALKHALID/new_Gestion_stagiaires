@@ -86,8 +86,13 @@ class InscriptionController extends Controller
             if (!$cef) {
                 continue; // Skip if no CEF identifier
             }
-            
+            $stagiairee = Stagiaire::find($cef);
+            $group = Groupe::find($groupeCode);
+            $filier = Filiere::find($filiereCode);
 
+            if(!$stagiairee || !$group || !$filier){
+                return redirect()->back()->with('error', 'you should import first Filiers and Stagiaires and then Groupes');
+            }
             // 2. Find or Create the Stagiaire so we don't duplicate records
             $stagiaire = Stagiaire::find($cef);
 
