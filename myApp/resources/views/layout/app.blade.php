@@ -27,8 +27,8 @@
     
     {{-- <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('assets/css/azzara.min.css')}}">
-    <link href="{{asset('assets/styles.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/prism.css')}}" rel="stylesheet" />
+    {{-- <link href="{{asset('assets/styles.css')}}" rel="stylesheet" /> --}}
+    {{-- <link href="{{asset('assets/prism.css')}}" rel="stylesheet" /> --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     @stack('styles')

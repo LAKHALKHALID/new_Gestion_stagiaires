@@ -154,8 +154,9 @@
                 let fullName = stagiaire.nom_francais + " " + stagiaire.prenom_francais;
             
                 // Dynamic date from your loop row element
-                let isoDate = absence.created_at; 
-                let date = new Date(isoDate);
+                // let isoDate = absence.created_at; 
+                // let date = new Date(isoDate);
+                let date = new Date();
 
                 let formattedDate =
                     date.getDate().toString().padStart(2, '0') + '/' +
