@@ -83,8 +83,10 @@
                             <td>{{ $ab->status }}</td>
                             <td>{{ $ab->seance }}</td>
                             <td>
-                                {{-- {{ $ab->chemin }} --}}
-                                <a href="{{asset('./storage/'.$ab->chemin)}}">chemin</a>
+                                
+                                @if ($ab->chemin )
+                                    <a href="{{asset('./storage/'.$ab->chemin)}}">chemin</a>
+                                @endif
                             </td>
                             <td>{{ $ab->medecin }}</td>
                             <td>{{ $ab->created_at }}</td>
