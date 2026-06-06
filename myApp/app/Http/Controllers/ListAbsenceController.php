@@ -126,7 +126,7 @@ class ListAbsenceController extends Controller
                     ],
                     [
                         // Increment/Decrement logic using database values protection
-                        'note'         => DB::raw("note + $totalDelta"),
+                        'note'         => DB::raw("note + " . ($totalDelta == -1 ? 0 : $totalDelta)),
                         'created_at'   => now()->startOfDay(),
                         
                     ]
@@ -135,8 +135,7 @@ class ListAbsenceController extends Controller
                 if (floatval($data->note) > 2) {
                     $response = Http::post('http://localhost:5678/webhook/ac26f4e1-4904-4bfd-aab2-288d139fc1ee', [
                         "name" => Stagiaire::where('cef', $stagiaireId)->first()->nom_francais . ' ' . Stagiaire::where('cef', $stagiaireId)->first()->prenom_francais,
-
-                        'email' => 'hamadalmodir@gmail.com'
+                        'Cef' => Stagiaire::where('cef', $stagiaireId)->first()->cef
                     ]);
                 }
             }

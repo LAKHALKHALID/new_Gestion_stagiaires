@@ -20,7 +20,7 @@
         <li class="nav-item">
           <a href="{{route('absences.index')}}">
             <span class="letter-icon">As</span>
-            <p>Asence</p>
+            <p>Absence</p>
           </a>
         </li>
 
@@ -49,6 +49,12 @@
           <a href="{{route('deperditions.index')}}">
             <span class="letter-icon">De</span>
             <p>Depardition</p>
+          </a>
+        </li>
+				<li class="nav-item">
+          <a href="{{route('discipline.show')}}">
+            <span class="letter-icon">Ds</span>
+            <p>Discipline</p>
           </a>
         </li>
 

@@ -152,4 +152,19 @@ class FiliersController extends Controller
 
         return back()->with('success', 'Data imported successfully!');
     }
+
+    public function showForme()
+    {   
+        $filiers = Filiere::all();
+        return view('filiers.discipline',compact('filiers'));
+    }
+
+    public function afficher(Request $request)
+    {
+        
+        // return $request;
+        // if()
+        $filiers = $request->filier == 'all'?Filiere::all():Filiere::where('code_f',$request->filier)->get();
+        return view('filiers.affiche',compact('filiers'));
+    }
 }

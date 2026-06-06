@@ -40,10 +40,11 @@ Route::middleware(['is_admin', 'auth'])->group(function () {
         Route::get('/filiers/create', 'create')->name('filiers.create');
         Route::post('/filiers', 'store')->name('filiers.store');
         Route::get('/filiers/{code_f}/show', 'show')->name('filiers.show');
-
         Route::get('/filiers/{code_f}/edit', 'edit')->name('filiers.edit');
         Route::put('/filiers/{code_f}', 'update')->name('filiers.update');
         Route::delete('/filiers/{code_f}', 'destroy')->name('filiers.destroy');
+        Route::get('/discipline','showForme')->name('discipline.show');
+        Route::get('/discipline/afficher', 'afficher')->name('discipline.afficher');
     });
 
     Route::controller(GroupesController::class)->group(function () {
